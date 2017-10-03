@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Number of players</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBox">
+          <item>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Selected Expansions</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget">
+          <item>
+           <property name="text">
+            <string>Core Set</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Awesome Level 9000</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>The Obligatory Cthulhu Set</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Science Fiction Double Feature</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Geeks</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Monster Smash</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Pretty Pretty</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Munchkin</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>It's Your Fault</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cease &amp; Desist</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>What Were We Thinking?</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Big in Japan</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Selected Factions</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget_2">
+          <item>
+           <property name="text">
+            <string>Aliens</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dinasaurs</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ninjas</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Pirates</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Robots</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Tricksters</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Wizards</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Zombies</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bear Cavalry</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ghosts</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Killer Plants</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Steampunks</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Elder Things</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Innsmouth</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minions of Cthulhu</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Miskatonic University</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cyborg Apes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Shapeshifters</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Super Spies</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Time Travelers</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Geeks</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Giant Ants</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mad Scientists</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Vampires</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Werewolves</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fairies</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kitty Cats</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mythic Horses</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Princesses</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Clerics</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dwarves</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Elves</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Halflings</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mages</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Orcs</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Thieves</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Warriors</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dragons</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mythic Greeks</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Sharks</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Superheroes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Tornadoes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Astroknightes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Changerbots</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ignobles</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Star Roamers</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Explorers</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Grannies</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rock Stars</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teddy Bears</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Itty Critters</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kaiju</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Magical Girls</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mega Troopers</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Randomize!</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="verticalGroupBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Factions per player</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
