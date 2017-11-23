@@ -92,9 +92,11 @@ static void ClearLayout(QHBoxLayout* layout) {
 static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, size_t player,
                      QString item1, QString item2) {
   QGroupBox* groupBox = new QGroupBox(parent);
+  groupBox->setContentsMargins(0, 0, 0, 0);
   cur_layout->addWidget(groupBox);
   groupBox->setTitle("Player " + QString::number(player + 1, 10));
   QVBoxLayout* groupLayout = new QVBoxLayout(groupBox);
+  groupLayout->setContentsMargins(9, 0, 9, 4);
   QLabel* faction1 = new QLabel(groupBox);
   QLabel* faction2 = new QLabel(groupBox);
   groupLayout->addWidget(faction1);
@@ -122,14 +124,14 @@ void MainWindow::RandomizeClicked() {
   ClearLayout(ui_->horizontalLayout_4);
   ClearLayout(ui_->horizontalLayout_5);
 
-  for (size_t i = 0; i < std::min(player_number, 4u); ++i) {
+  for (size_t i = 0; i < std::min(player_number, 4U); ++i) {
     AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
              all_factions[faction_indeces[i * 2]],
              all_factions[faction_indeces[i * 2 + 1]]);
   }
   if (player_number > 4) {
     for (size_t i = 4; i < player_number; ++i) {
-      AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
+      AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_5, i,
                all_factions[faction_indeces[i * 2]],
                all_factions[faction_indeces[i * 2 + 1]]);
     }
