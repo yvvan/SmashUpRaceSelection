@@ -16,15 +16,15 @@ static void InitList(QListWidget* list, std::set<QString>& values) {
   }
 }
 
-static constexpr std::array<int, 12> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4};
+static constexpr std::array<size_t, 12> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4};
 
 static void AddConnections(QListWidget* expansions, QListWidget* factions,
                     MainWindow::Connections& connections) {
-  int shift {0};
-  for (int i = 0; i < expansions->count(); ++i) {
-    auto& factions_set = connections[expansions->item(i)];
-    for (int j = shift; j < shift + kExpansionSizes.at(i); ++j) {
-      factions_set.insert(factions->item(j));
+  size_t shift {0};
+  for (size_t i = 0; i < static_cast<size_t>(expansions->count()); ++i) {
+    auto& factions_set = connections[expansions->item(static_cast<int>(i))];
+    for (size_t j = shift; j < shift + kExpansionSizes.at(i); ++j) {
+      factions_set.insert(factions->item(static_cast<int>(j)));
     }
     shift += kExpansionSizes.at(i);
   }
@@ -89,7 +89,7 @@ static void ClearLayout(QHBoxLayout* layout) {
   }
 }
 
-static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, unsigned player,
+static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, size_t player,
                      QString item1, QString item2) {
   QGroupBox* groupBox = new QGroupBox(parent);
   cur_layout->addWidget(groupBox);
@@ -105,7 +105,7 @@ static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, unsigned player
 
 void MainWindow::RandomizeClicked() {
   bool ok;
-  const unsigned player_number = ui_->comboBox->currentText().toInt(&ok, 10);
+  const unsigned player_number = ui_->comboBox->currentText().toUInt(&ok, 10U);
   const unsigned factions_number = player_number * 2;
   if (selected_factions_.size() < factions_number) {
     QMessageBox::critical(this, "Error",
@@ -115,20 +115,20 @@ void MainWindow::RandomizeClicked() {
   assert(ok);
   std::vector<QString> all_factions(selected_factions_.size());
   std::copy(selected_factions_.begin(), selected_factions_.end(), all_factions.begin());
-  std::vector<int> faction_indeces(selected_factions_.size());
+  std::vector<size_t> faction_indeces(selected_factions_.size());
   std::iota(faction_indeces.begin(), faction_indeces.end(), 0);
   std::random_shuffle(faction_indeces.begin(), faction_indeces.end());
 
   ClearLayout(ui_->horizontalLayout_4);
   ClearLayout(ui_->horizontalLayout_5);
 
-  for (unsigned i = 0; i < std::min(player_number, 4u); ++i) {
+  for (size_t i = 0; i < std::min(player_number, 4u); ++i) {
     AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
              all_factions[faction_indeces[i * 2]],
              all_factions[faction_indeces[i * 2 + 1]]);
   }
   if (player_number > 4) {
-    for (unsigned i = 4; i < player_number; ++i) {
+    for (size_t i = 4; i < player_number; ++i) {
       AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
                all_factions[faction_indeces[i * 2]],
                all_factions[faction_indeces[i * 2 + 1]]);
