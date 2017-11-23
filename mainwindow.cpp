@@ -16,14 +16,14 @@ static void InitList(QListWidget* list, std::set<QString>& values) {
   }
 }
 
-static const std::array<int, 12> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4};
+static constexpr std::array<int, 12> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4};
 
 static void AddConnections(QListWidget* expansions, QListWidget* factions,
                     MainWindow::Connections& connections) {
   int shift {0};
-  for (auto i = 0; i < expansions->count(); ++i) {
+  for (int i = 0; i < expansions->count(); ++i) {
     auto& factions_set = connections[expansions->item(i)];
-    for (auto j = shift; j < shift + kExpansionSizes.at(i); ++j) {
+    for (int j = shift; j < shift + kExpansionSizes.at(i); ++j) {
       factions_set.insert(factions->item(j));
     }
     shift += kExpansionSizes.at(i);
