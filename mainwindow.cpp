@@ -16,7 +16,7 @@ static void InitList(QListWidget* list, std::set<QString>& values) {
   }
 }
 
-static constexpr std::array<size_t, 12> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4};
+static constexpr std::array<size_t, 14> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4, 1, 1};
 
 static void AddConnections(QListWidget* expansions, QListWidget* factions,
                     MainWindow::Connections& connections) {
