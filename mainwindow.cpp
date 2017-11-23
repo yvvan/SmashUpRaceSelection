@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
   assert(kExpansionSizes.size() == ui_->listWidget->count());
   InitList(ui_->listWidget, selected_expansions_);
   InitList(ui_->listWidget_2, selected_factions_);
+  for (int i = 0; i < ui_->listWidget_3->count(); ++i) {
+    auto item = ui_->listWidget_3->item(i);
+    item->setHidden(true);
+  }
   AddConnections(ui_->listWidget, ui_->listWidget_2, connections_);
 
   QObject::connect(ui_->listWidget, SIGNAL(itemChanged(QListWidgetItem*)),
@@ -123,11 +127,21 @@ void MainWindow::RandomizeClicked() {
 
   ClearLayout(ui_->horizontalLayout_4);
   ClearLayout(ui_->horizontalLayout_5);
+  for (int i = 0; i < ui_->listWidget_3->count(); ++i) {
+    auto item = ui_->listWidget_3->item(i);
+    item->setHidden(true);
+  }
 
   for (size_t i = 0; i < std::min(player_number, 4U); ++i) {
     AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
              all_factions[faction_indeces[i * 2]],
              all_factions[faction_indeces[i * 2 + 1]]);
+    size_t base_index = faction_indeces[i * 2] * 2;
+    ui_->listWidget_3->item(base_index)->setHidden(false);
+    ui_->listWidget_3->item(base_index + 1)->setHidden(false);
+    base_index = faction_indeces[i * 2 + 1] * 2;
+    ui_->listWidget_3->item(base_index)->setHidden(false);
+    ui_->listWidget_3->item(base_index + 1)->setHidden(false);
   }
   if (player_number > 4) {
     for (size_t i = 4; i < player_number; ++i) {
