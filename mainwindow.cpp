@@ -109,6 +109,17 @@ static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, size_t player,
   faction2->setText(item2);
 }
 
+int MainWindow::GetBaseIndexByFaction(QString faction_name) {
+  auto items = ui_->listWidget_2->findItems(faction_name, Qt::MatchExactly);
+  return ui_->listWidget_2->row(items[0]) * 2;
+}
+
+void MainWindow::ShowBases(QString faction_index) {
+    int base_index = GetBaseIndexByFaction(faction_index);
+    ui_->listWidget_3->item(base_index)->setHidden(false);
+    ui_->listWidget_3->item(base_index + 1)->setHidden(false);
+}
+
 void MainWindow::RandomizeClicked() {
   bool ok;
   const unsigned player_number = ui_->comboBox->currentText().toUInt(&ok, 10U);
@@ -136,18 +147,16 @@ void MainWindow::RandomizeClicked() {
     AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_4, i,
              all_factions[faction_indeces[i * 2]],
              all_factions[faction_indeces[i * 2 + 1]]);
-    size_t base_index = faction_indeces[i * 2] * 2;
-    ui_->listWidget_3->item(base_index)->setHidden(false);
-    ui_->listWidget_3->item(base_index + 1)->setHidden(false);
-    base_index = faction_indeces[i * 2 + 1] * 2;
-    ui_->listWidget_3->item(base_index)->setHidden(false);
-    ui_->listWidget_3->item(base_index + 1)->setHidden(false);
+    ShowBases(all_factions[faction_indeces[i * 2]]);
+    ShowBases(all_factions[faction_indeces[i * 2 + 1]]);
   }
   if (player_number > 4) {
     for (size_t i = 4; i < player_number; ++i) {
       AddGroup(ui_->verticalGroupBox, ui_->horizontalLayout_5, i,
                all_factions[faction_indeces[i * 2]],
                all_factions[faction_indeces[i * 2 + 1]]);
+      ShowBases(all_factions[faction_indeces[i * 2]]);
+      ShowBases(all_factions[faction_indeces[i * 2 + 1]]);
     }
   }
 }
