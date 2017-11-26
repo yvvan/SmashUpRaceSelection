@@ -34,7 +34,7 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>Number of players</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Players&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -103,6 +103,9 @@
         </item>
         <item>
          <widget class="QListWidget" name="listWidget">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
           <item>
            <property name="text">
             <string>Core Set</string>
@@ -188,6 +191,9 @@
         </item>
         <item>
          <widget class="QListWidget" name="listWidget_2">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
           <item>
            <property name="text">
             <string>Aliens</string>
@@ -483,6 +489,9 @@
         </item>
         <item>
          <widget class="QListWidget" name="listWidget_3">
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
           <item>
            <property name="text">
             <string>The Homeworld</string>
