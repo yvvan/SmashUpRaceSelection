@@ -2,10 +2,12 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include <QScroller>
 
 #include <cassert>
 #include <algorithm>
 #include <array>
+#include <ctime>
 
 static void InitList(QListWidget* list, std::set<QString>& values) {
   for (auto i = 0; i < list->count(); ++i) {
@@ -50,6 +52,10 @@ MainWindow::MainWindow(QWidget *parent)
                    this, SLOT(FactionChanged(QListWidgetItem*)));
   QObject::connect(ui_->pushButton, SIGNAL(clicked()),
                    this, SLOT(RandomizeClicked()));
+  QScroller::grabGesture(ui_->listWidget, QScroller::LeftMouseButtonGesture);
+  QScroller::grabGesture(ui_->listWidget_2, QScroller::LeftMouseButtonGesture);
+  QScroller::grabGesture(ui_->listWidget_3, QScroller::LeftMouseButtonGesture);
+  std::srand(std::time(0));
 }
 
 std::vector<QString> FactionsByExpansion(QString expansion) {

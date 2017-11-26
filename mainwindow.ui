@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>890</width>
+    <height>374</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -475,567 +483,567 @@
         </item>
         <item>
          <widget class="QListWidget" name="listWidget_3">
-		  <item>
+          <item>
            <property name="text">
             <string>The Homeworld</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Mothership</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Jungle Oasis</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Tar Pits</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Ninja Dojo</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Temple of Goju</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Grey Opal</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Tortuga</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Factory 436-1337</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Central Brain</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Cave of Shinies</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Mushroom Kingdom</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>School of Wizardry</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Great Library</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Evans City Cemetery</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Rhodes Plaza Mall</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Field of Honor</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Tsar's Palace</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Haunted House</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Dread Gazebo</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Secret Grove</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Greenhouse</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Inventor's Salon</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Workshop</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Antarctic Base</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Plateau of Leng</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Innsmouth</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Ritual Site</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Mountains of Madness</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>R'lyeh</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Asylum</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Miskatonic University</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Monkey Lab</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Primate Park</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Faceless City</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Vats</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>ISI's Swingin' Pad</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Secret Volcano Headquarters</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Portal Room</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Nexus</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>TableTop</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Con</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Egg Chamber</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Hill</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Golem Schloß</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Laboratorium</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Castle Blood</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Crypt</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Moot Site</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Standing Stones</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Enchanted Glen</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Fairy Circle</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Cool Cats' Alley</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The House of Nine Lives</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Equaria</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Pony Land</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Beautiful Castle</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Ice Castle</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Hotel of Holiness</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Whack-A-Ghoul</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Mines</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Treasure Bath</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Helper's Hollow</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Treehouse</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Birthday Party</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Subterranean Lair</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Dimension Doors</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Mage's Tower</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Garrison</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Pits</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Coffers</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Thieves' Guild</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Bastion</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Gauntlet</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Dragon's Lair</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Wyrm's Desolation</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Oracle at Delphi</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Wooden Horse</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Shark Reef</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>The Deep</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Converted Cave</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Crystal Fortress</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Tornado Alley</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Trailer Park</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Hive of Scum and Villainy</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>No-Moon</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Changing Room</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Unicrave</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Spikey Chair Room</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Wintersquashed</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Neutral Space</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>USS Undertaking</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Ancient Temple</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>City of Gold</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Grandma's House</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Retirement Community</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Lake Minnetonka</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Palooza</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Out in the Woods</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Under the Bed</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Critter Combat Club</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Itty City</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Kaiju Island</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Tokyo</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Akihabara High</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Q Point</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Juice Bar</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Moon Dumpster</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Locker Room</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>Stadium</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>sheep base 1</string>
            </property>
           </item>
-		  <item>
+          <item>
            <property name="text">
             <string>sheep base 2</string>
            </property>
           </item>
-		 </widget>
+         </widget>
         </item>
        </layout>
       </item>
@@ -1045,6 +1053,18 @@
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QPushButton" name="pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>22</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>22</height>
+         </size>
+        </property>
         <property name="text">
          <string>Randomize!</string>
         </property>
