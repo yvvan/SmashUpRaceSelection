@@ -52,9 +52,17 @@ MainWindow::MainWindow(QWidget *parent)
                    this, SLOT(FactionChanged(QListWidgetItem*)));
   QObject::connect(ui_->pushButton, SIGNAL(clicked()),
                    this, SLOT(RandomizeClicked()));
+#ifdef Q_OS_ANDROID
   QScroller::grabGesture(ui_->listWidget, QScroller::LeftMouseButtonGesture);
   QScroller::grabGesture(ui_->listWidget_2, QScroller::LeftMouseButtonGesture);
   QScroller::grabGesture(ui_->listWidget_3, QScroller::LeftMouseButtonGesture);
+  ui_->listWidget->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->listWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->listWidget_2->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->listWidget_2->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->listWidget_3->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->listWidget_3->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+#endif
   std::srand(std::time(0));
 }
 
