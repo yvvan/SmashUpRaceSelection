@@ -1,5 +1,10 @@
 #include "mainwindow.h"
+
+#include "utils.h"
+
 #include "ui_mainwindow.h"
+#include "ui_expansionswidget.h"
+#include "ui_factionswidget.h"
 
 #include <QMessageBox>
 #include <QScroller>
@@ -9,46 +14,31 @@
 #include <array>
 #include <ctime>
 
-static void InitList(QListWidget* list, std::set<QString>& values) {
-  for (auto i = 0; i < list->count(); ++i) {
-    auto* item = list->item(i);
-    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-    item->setCheckState(Qt::Checked);
-    values.insert(item->text());
-  }
-}
-
-static constexpr std::array<size_t, 14> kExpansionSizes = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4, 1, 1};
-
-static void AddConnections(QListWidget* expansions, QListWidget* factions,
-                    MainWindow::Connections& connections) {
-  size_t shift {0};
-  for (size_t i = 0; i < static_cast<size_t>(expansions->count()); ++i) {
-    auto& factions_set = connections[expansions->item(static_cast<int>(i))];
-    for (size_t j = shift; j < shift + kExpansionSizes.at(i); ++j) {
-      factions_set.insert(factions->item(static_cast<int>(j)));
-    }
-    shift += kExpansionSizes.at(i);
-  }
-}
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui_(std::make_unique<Ui::MainWindow>()) {
   ui_->setupUi(this);
+  ui_factions_ = std::make_unique<Ui::FactionsWidget>();
+  ui_expansions_ = std::make_unique<Ui::ExpansionsWidget>();
 
-  assert(kExpansionSizes.size() == ui_->listWidget->count());
-  InitList(ui_->listWidget, selected_expansions_);
-  InitList(ui_->listWidget_2, selected_factions_);
+  QWidget* factions_widget = new QWidget;
+  ui_factions_->setupUi(factions_widget);
+  ui_->factionsLayout->addWidget(factions_widget);
+  QWidget* expansions_widget = new QWidget;
+  ui_expansions_->setupUi(expansions_widget);
+  ui_->expansionsLayout->addWidget(expansions_widget);
+
+  assert(kExpansionSizes.size() == ui_expansions_->expansionsList->count());
+  InitList(ui_expansions_->expansionsList, selected_expansions_);
+  InitList(ui_factions_->factionsList, selected_factions_);
   for (int i = 0; i < ui_->listWidget_3->count(); ++i) {
     auto item = ui_->listWidget_3->item(i);
     item->setHidden(true);
   }
-  AddConnections(ui_->listWidget, ui_->listWidget_2, connections_);
 
-  QObject::connect(ui_->listWidget, SIGNAL(itemChanged(QListWidgetItem*)),
+  QObject::connect(ui_expansions_->expansionsList, SIGNAL(itemChanged(QListWidgetItem*)),
                    this, SLOT(ExpansionChanged(QListWidgetItem*)));
-  QObject::connect(ui_->listWidget_2, SIGNAL(itemChanged(QListWidgetItem*)),
+  QObject::connect(ui_factions_->factionsList, SIGNAL(itemChanged(QListWidgetItem*)),
                    this, SLOT(FactionChanged(QListWidgetItem*)));
   QObject::connect(ui_->pushButton, SIGNAL(clicked()),
                    this, SLOT(RandomizeClicked()));
@@ -75,15 +65,19 @@ std::vector<QString> FactionsByExpansion(QString expansion) {
 MainWindow::~MainWindow() = default;
 
 void MainWindow::ExpansionChanged(QListWidgetItem* item) {
+  size_t row = static_cast<size_t>(ui_expansions_->expansionsList->row(item));
+  size_t shift = kExpansionShifts[row];
   if (item->checkState() == Qt::Checked) {
     selected_expansions_.insert(item->text());
-    for (auto* faction : connections_[item]) {
+    for (size_t i = 0; i < kExpansionSizes[row]; ++i) {
+      auto* faction = ui_factions_->factionsList->item(shift + i);
       faction->setCheckState(Qt::Checked);
       selected_factions_.insert(faction->text());
     }
   } else {
     selected_expansions_.erase(item->text());
-    for (auto* faction : connections_[item]) {
+    for (size_t i = 0; i < kExpansionSizes[row]; ++i) {
+      auto* faction = ui_factions_->factionsList->item(shift + i);
       faction->setCheckState(Qt::Unchecked);
       selected_factions_.erase(faction->text());
     }
@@ -124,8 +118,8 @@ static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, size_t player,
 }
 
 int MainWindow::GetBaseIndexByFaction(QString faction_name) {
-  auto items = ui_->listWidget_2->findItems(faction_name, Qt::MatchExactly);
-  return ui_->listWidget_2->row(items[0]) * 2;
+  auto items = ui_factions_->factionsList->findItems(faction_name, Qt::MatchExactly);
+  return ui_factions_->factionsList->row(items[0]) * 2;
 }
 
 void MainWindow::ShowBases(QString faction_index) {

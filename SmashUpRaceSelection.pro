@@ -25,13 +25,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    mainmobile.cpp \
+    utils.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mainmobile.h \
+    utils.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    mainmobile.ui \
+    mainwidget.ui \
+    factionswidget.ui \
+    expansionswidget.ui
 
 CONFIG += mobility c++14
 MOBILITY =

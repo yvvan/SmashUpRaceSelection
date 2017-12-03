@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FactionsWidget</class>
+ <widget class="QWidget" name="FactionsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QListWidget" name="factionsList">
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <item>
+      <property name="text">
+       <string>Aliens</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dinasaurs</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ninjas</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pirates</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Robots</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tricksters</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Wizards</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Zombies</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bear Cavalry</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ghosts</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Killer Plants</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Steampunks</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Elder Things</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Innsmouth</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Minions of Cthulhu</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Miskatonic University</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cyborg Apes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Shapeshifters</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Super Spies</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Time Travelers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Geeks</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Giant Ants</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mad Scientists</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vampires</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Werewolves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fairies</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Kitty Cats</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mythic Horses</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Princesses</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Clerics</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dwarves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Elves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Halflings</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mages</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Orcs</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Thieves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Warriors</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dragons</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mythic Greeks</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sharks</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Superheroes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tornadoes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Astroknightes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Changerbots</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ignobles</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Star Roamers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Explorers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Grannies</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rock Stars</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Teddy Bears</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Itty Critters</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Kaiju</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Magical Girls</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mega Troopers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Smash Up All Stars</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sheep</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

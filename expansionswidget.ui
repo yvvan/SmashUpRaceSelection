@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExpansionsWidget</class>
+ <widget class="QWidget" name="ExpansionsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QListWidget" name="expansionsList">
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <item>
+      <property name="text">
+       <string>Core Set</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Awesome Level 9000</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>The Obligatory Cthulhu Set</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Science Fiction Double Feature</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Geeks</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Monster Smash</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pretty Pretty</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Munchkin</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>It's Your Fault</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cease &amp; Desist</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>What Were We Thinking?</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Big in Japan</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>All Stars Event Kit</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sheep Promotion</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
