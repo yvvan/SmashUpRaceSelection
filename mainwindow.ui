@@ -101,6 +101,9 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QListWidget" name="expansionsList"/>
+        </item>
        </layout>
       </item>
       <item>
@@ -111,6 +114,9 @@
            <string>Selected Factions</string>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="factionsList"/>
         </item>
        </layout>
       </item>

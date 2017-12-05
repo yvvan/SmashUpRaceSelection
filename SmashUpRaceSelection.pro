@@ -37,9 +37,7 @@ HEADERS += \
 FORMS += \
         mainwindow.ui \
     mainmobile.ui \
-    mainwidget.ui \
-    factionswidget.ui \
-    expansionswidget.ui
+    mainwidget.ui
 
 CONFIG += mobility c++14
 MOBILITY =

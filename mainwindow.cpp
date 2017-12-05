@@ -3,8 +3,6 @@
 #include "utils.h"
 
 #include "ui_mainwindow.h"
-#include "ui_expansionswidget.h"
-#include "ui_factionswidget.h"
 
 #include <QMessageBox>
 #include <QScroller>
@@ -18,66 +16,54 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui_(std::make_unique<Ui::MainWindow>()) {
   ui_->setupUi(this);
-  ui_factions_ = std::make_unique<Ui::FactionsWidget>();
-  ui_expansions_ = std::make_unique<Ui::ExpansionsWidget>();
 
-  QWidget* factions_widget = new QWidget;
-  ui_factions_->setupUi(factions_widget);
-  ui_->factionsLayout->addWidget(factions_widget);
-  QWidget* expansions_widget = new QWidget;
-  ui_expansions_->setupUi(expansions_widget);
-  ui_->expansionsLayout->addWidget(expansions_widget);
-
-  assert(kExpansionSizes.size() == ui_expansions_->expansionsList->count());
-  InitList(ui_expansions_->expansionsList, selected_expansions_);
-  InitList(ui_factions_->factionsList, selected_factions_);
+  InitList(ui_->expansionsList, kExpansions);
+  InitList(ui_->factionsList, kFactions);
+  std::copy(kExpansions.begin(), kExpansions.end(),
+            std::inserter(selected_expansions_, selected_expansions_.begin()));
+  std::copy(kFactions.begin(), kFactions.end(),
+            std::inserter(selected_factions_, selected_factions_.begin()));
   for (int i = 0; i < ui_->listWidget_3->count(); ++i) {
     auto item = ui_->listWidget_3->item(i);
     item->setHidden(true);
   }
 
-  QObject::connect(ui_expansions_->expansionsList, SIGNAL(itemChanged(QListWidgetItem*)),
+  QObject::connect(ui_->expansionsList, SIGNAL(itemChanged(QListWidgetItem*)),
                    this, SLOT(ExpansionChanged(QListWidgetItem*)));
-  QObject::connect(ui_factions_->factionsList, SIGNAL(itemChanged(QListWidgetItem*)),
+  QObject::connect(ui_->factionsList, SIGNAL(itemChanged(QListWidgetItem*)),
                    this, SLOT(FactionChanged(QListWidgetItem*)));
   QObject::connect(ui_->pushButton, SIGNAL(clicked()),
                    this, SLOT(RandomizeClicked()));
 #ifdef Q_OS_ANDROID
-  QScroller::grabGesture(ui_->listWidget, QScroller::LeftMouseButtonGesture);
-  QScroller::grabGesture(ui_->listWidget_2, QScroller::LeftMouseButtonGesture);
+  QScroller::grabGesture(ui_->expansionsList, QScroller::LeftMouseButtonGesture);
+  QScroller::grabGesture(ui_->factionsList, QScroller::LeftMouseButtonGesture);
   QScroller::grabGesture(ui_->listWidget_3, QScroller::LeftMouseButtonGesture);
-  ui_->listWidget->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->listWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->listWidget_2->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->listWidget_2->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->expansionsList->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->expansionsList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->factionsList->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+  ui_->factionsList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
   ui_->listWidget_3->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
   ui_->listWidget_3->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 #endif
   std::srand(std::time(0));
 }
 
-std::vector<QString> FactionsByExpansion(QString expansion) {
-  std::vector<QString> factions;
-
-  return factions;
-}
-
 MainWindow::~MainWindow() = default;
 
 void MainWindow::ExpansionChanged(QListWidgetItem* item) {
-  size_t row = static_cast<size_t>(ui_expansions_->expansionsList->row(item));
+  size_t row = static_cast<size_t>(ui_->expansionsList->row(item));
   size_t shift = kExpansionShifts[row];
   if (item->checkState() == Qt::Checked) {
     selected_expansions_.insert(item->text());
     for (size_t i = 0; i < kExpansionSizes[row]; ++i) {
-      auto* faction = ui_factions_->factionsList->item(shift + i);
+      auto* faction = ui_->factionsList->item(shift + i);
       faction->setCheckState(Qt::Checked);
       selected_factions_.insert(faction->text());
     }
   } else {
     selected_expansions_.erase(item->text());
     for (size_t i = 0; i < kExpansionSizes[row]; ++i) {
-      auto* faction = ui_factions_->factionsList->item(shift + i);
+      auto* faction = ui_->factionsList->item(shift + i);
       faction->setCheckState(Qt::Unchecked);
       selected_factions_.erase(faction->text());
     }
@@ -117,13 +103,13 @@ static void AddGroup(QGroupBox* parent, QHBoxLayout* cur_layout, size_t player,
   faction2->setText(item2);
 }
 
-int MainWindow::GetBaseIndexByFaction(QString faction_name) {
-  auto items = ui_factions_->factionsList->findItems(faction_name, Qt::MatchExactly);
-  return ui_factions_->factionsList->row(items[0]) * 2;
+int MainWindow::GetBaseIndexByFaction(const QString& faction_name) {
+  auto items = ui_->factionsList->findItems(faction_name, Qt::MatchExactly);
+  return ui_->factionsList->row(items[0]) * 2;
 }
 
-void MainWindow::ShowBases(QString faction_index) {
-    int base_index = GetBaseIndexByFaction(faction_index);
+void MainWindow::ShowBases(const QString& faction_name) {
+    int base_index = GetBaseIndexByFaction(faction_name);
     ui_->listWidget_3->item(base_index)->setHidden(false);
     ui_->listWidget_3->item(base_index + 1)->setHidden(false);
 }

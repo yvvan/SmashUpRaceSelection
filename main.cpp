@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 #endif
   QApplication a(argc, argv);
 
-#if !defined(Q_OS_ANDROID) and !defined(Q_OS_IOS)
+#if 0//!defined(Q_OS_ANDROID) and !defined(Q_OS_IOS)
   MainWindow w;
   w.show();
 #else

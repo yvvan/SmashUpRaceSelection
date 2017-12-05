@@ -27,11 +27,9 @@ public slots:
   void RandomizeClicked();
 
 private:
-  int GetBaseIndexByFaction(QString faction_name);
-  void ShowBases(QString faction_name);
+  int GetBaseIndexByFaction(const QString& faction_name);
+  void ShowBases(const QString& faction_name);
   std::unique_ptr<Ui::MainWindow> ui_;
-  std::unique_ptr<Ui::FactionsWidget> ui_factions_;
-  std::unique_ptr<Ui::ExpansionsWidget> ui_expansions_;
   std::set<QString> selected_expansions_;
   std::set<QString> selected_factions_;
 
