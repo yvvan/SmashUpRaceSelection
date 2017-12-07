@@ -37,13 +37,64 @@ kFactions = {"Aliens", "Dinasaurs", "Ninjas", "Pirates", "Robots", "Tricksters",
              "Rock Stars", "Teddy Bears", "Itty Critters", "Kaiju", "Magical Girls",
              "Mega Troopers", "Smash Up All Stars", "Sheep"};
 
+static constexpr size_t kBasesNumber = kFactionsNumber * 2;
+
+static constexpr const std::array<const char*, kBasesNumber>
+kBases = {"The Homeworld","The Mothership","Jungle Oasis","Tar Pits","Ninja Dojo","Temple of Goju",
+          "The Grey Opal","Tortuga","Factory 436-1337","The Central Brain","Cave of Shinies",
+          "Mushroom Kingdom","School of Wizardry","The Great Library","Evans City Cemetery",
+          "Rhodes Plaza Mall","Field of Honor","Tsar's Palace","Haunted House","The Dread Gazebo",
+          "Secret Grove","The Greenhouse","Inventor's Salon","Workshop","Antarctic Base",
+          "Plateau of Leng","Innsmouth","Ritual Site","Mountains of Madness","R'lyeh","Asylum",
+          "Miskatonic University","Monkey Lab","Primate Park","Faceless City","The Vats",
+          "ISI's Swingin' Pad","Secret Volcano Headquarters","Portal Room","The Nexus","TableTop",
+          "The Con","Egg Chamber","The Hill","Golem SchloÃŸ","Laboratorium","Castle Blood","Crypt",
+          "Moot Site","Standing Stones","Enchanted Glen","Fairy Circle","Cool Cats' Alley",
+          "The House of Nine Lives","Equaria","Pony Land","Beautiful Castle","Ice Castle",
+          "Hotel of Holiness","Whack-A-Ghoul","The Mines","Treasure Bath","Helper's Hollow",
+          "Treehouse","Birthday Party","Subterranean Lair","Dimension Doors","Mage's Tower",
+          "Garrison","The Pits","The Coffers","Thieves' Guild","Bastion","The Gauntlet",
+          "Dragon's Lair","Wyrm's Desolation","Oracle at Delphi","Wooden Horse","Shark Reef",
+          "The Deep","Converted Cave","Crystal Fortress","Tornado Alley","Trailer Park",
+          "Hive of Scum and Villainy","No-Moon","Changing Room","Unicrave","Spikey Chair Room",
+          "Wintersquashed","Neutral Space","USS Undertaking","Ancient Temple","City of Gold",
+          "Grandma's House","Retirement Community","Lake Minnetonka","Palooza","Out in the Woods",
+          "Under the Bed","Critter Combat Club","Itty City","Kaiju Island","Tokyo","Akihabara High",
+          "Q Point","Juice Bar","Moon Dumpster","Locker Room","Stadium","sheep 1","sheep 2"};
+
+class QBoxLayout;
+void ClearLayout(QBoxLayout* layout);
+
+void AddGroup(QBoxLayout* cur_layout, QListWidget* bases_list, size_t player, size_t faction_index1,
+              size_t faction_index2);
+
 template<size_t N>
-void InitList(QListWidget* list, std::array<const char*, N> values) {
+std::vector<size_t> GetSelectedIndeces(const std::array<bool, N>& selected_factions) {
+  std::vector<size_t> faction_indeces;
+  faction_indeces.reserve(kFactionsNumber);
+  size_t current {0};
+  for (bool faction: selected_factions) {
+    if (faction) {
+      faction_indeces.push_back(current);
+    }
+    ++current;
+  }
+  return faction_indeces;
+}
+
+template<size_t N>
+void InitList(QListWidget* list, std::array<const char*, N> values,
+              std::array<bool, N>* selected = nullptr) {
   int current {0};
   for (const auto& value: values) {
     list->addItem(value);
-    auto* item = list->item(current++);
+    auto* item = list->item(current);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-    item->setCheckState(Qt::Checked);
+    if (selected && !(*selected)[current]) {
+      item->setCheckState(Qt::Unchecked);
+    } else {
+      item->setCheckState(Qt::Checked);
+    }
+    ++current;
   }
 }

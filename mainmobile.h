@@ -1,10 +1,10 @@
 #pragma once
 
+#include "utils.h"
+
 #include <QMainWindow>
-#include <QListWidget>
 
 #include <memory>
-#include <set>
 
 namespace Ui {
   class MainMobile;
@@ -28,14 +28,14 @@ public slots:
   void onExpansionsClicked();
   void onFactionsClicked();
   void onBackClicked();
+  void onRandomizeClicked();
 private:
   void ChangeCurrent(ActiveScreen new_current);
-  void UncheckFactions(QListWidget* factionsList);
-  void UncheckExpansions(QListWidget* expansionsList);
   std::unique_ptr<Ui::MainMobile> ui_;
   std::unique_ptr<Ui::MainWidget> ui_main_;
-  std::set<QString> selected_expansions_;
-  std::set<QString> selected_factions_;
+  std::array<bool, kExpansionsNumber> selected_expansions_;
+  std::array<bool, kFactionsNumber> selected_factions_;
 
   ActiveScreen current_screen_ = ActiveScreen::Main;
+  size_t players_number_ = 2;
 };

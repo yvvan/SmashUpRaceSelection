@@ -1,9 +1,10 @@
 #pragma once
 
+#include "utils.h"
+
 #include <QMainWindow>
 
 #include <memory>
-#include <set>
 
 namespace Ui {
   class MainWindow;
@@ -27,11 +28,9 @@ public slots:
   void RandomizeClicked();
 
 private:
-  int GetBaseIndexByFaction(const QString& faction_name);
-  void ShowBases(const QString& faction_name);
   std::unique_ptr<Ui::MainWindow> ui_;
-  std::set<QString> selected_expansions_;
-  std::set<QString> selected_factions_;
+  std::array<bool, kExpansionsNumber> selected_expansions_;
+  std::array<bool, kFactionsNumber> selected_factions_;
 
   QWidget* factions_widget_;
 };
