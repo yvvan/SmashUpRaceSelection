@@ -3,7 +3,6 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
-#include <QScroller>
 
 #include <cassert>
 #include <algorithm>
@@ -24,17 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
                    this, SLOT(FactionChanged(QListWidgetItem*)));
   QObject::connect(ui_->pushButton, SIGNAL(clicked()),
                    this, SLOT(RandomizeClicked()));
-#ifdef Q_OS_ANDROID
-  QScroller::grabGesture(ui_->expansionsList, QScroller::LeftMouseButtonGesture);
-  QScroller::grabGesture(ui_->factionsList, QScroller::LeftMouseButtonGesture);
-  QScroller::grabGesture(ui_->basesList, QScroller::LeftMouseButtonGesture);
-  ui_->expansionsList->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->expansionsList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->factionsList->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->factionsList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->basesList->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-  ui_->basesList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-#endif
 }
 
 MainWindow::~MainWindow() = default;

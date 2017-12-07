@@ -5,6 +5,7 @@
 
 #include <QGroupBox>
 #include <QMessageBox>
+#include <QScroller>
 
 MainMobile::MainMobile(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +15,9 @@ MainMobile::MainMobile(QWidget *parent)
   ui_main_ = std::make_unique<Ui::MainWidget>();
   selected_expansions_.fill(true);
   selected_factions_.fill(true);
+  ui_->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  ui_->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  QScroller::grabGesture(ui_->scrollArea, QScroller::LeftMouseButtonGesture);
 
   onBackClicked();
 }
@@ -47,36 +51,44 @@ void MainMobile::ChangeCurrent(ActiveScreen new_current) {
       }
     }
   }
+
   current_screen_ = new_current;
+  ClearLayout(ui_->verticalLayout);
+}
+
+static void SetFixedListHeight(QListWidget* list) {
+  int row_height = list->visualItemRect(list->item(0)).height();
+  int left, top, right, bottom;
+  list->getContentsMargins(&left, &top, &right, &bottom);
+  list->setFixedHeight(list->count() * row_height + top + bottom);
 }
 
 void MainMobile::onFactionsClicked() {
   ChangeCurrent(ActiveScreen::Factions);
-  ClearLayout(ui_->verticalLayout);
   QListWidget* factions_list = new QListWidget;
   InitList(factions_list, kFactions, &selected_factions_);
 
   auto* back_button = AddButton(ui_->verticalLayout, "Back");
   ui_->verticalLayout->addWidget(factions_list);
+  SetFixedListHeight(factions_list);
   QObject::connect(back_button, &QPushButton::clicked, this,
                    &MainMobile::onBackClicked);
 }
 
 void MainMobile::onExpansionsClicked() {
   ChangeCurrent(ActiveScreen::Expansions);
-  ClearLayout(ui_->verticalLayout);
   QListWidget* expansions_list = new QListWidget;
   InitList(expansions_list, kExpansions, &selected_expansions_);
 
   auto* back_button = AddButton(ui_->verticalLayout, "Back");
   ui_->verticalLayout->addWidget(expansions_list);
+  SetFixedListHeight(expansions_list);
   QObject::connect(back_button, &QPushButton::clicked, this,
                    &MainMobile::onBackClicked);
 }
 
 void MainMobile::onBackClicked() {
   ChangeCurrent(ActiveScreen::Main);
-  ClearLayout(ui_->verticalLayout);
   QWidget* widget = new QWidget;
   ui_main_->setupUi(widget);
   ui_main_->playersNumberCombo->setCurrentText(QString::number(players_number_));
@@ -91,7 +103,6 @@ void MainMobile::onBackClicked() {
 
 void MainMobile::onRandomizeClicked() {
   ChangeCurrent(ActiveScreen::Results);
-  ClearLayout(ui_->verticalLayout);
 
   auto* back_button = AddButton(ui_->verticalLayout, "Back");
   auto* repeat_button = AddButton(ui_->verticalLayout, "Repeat");
@@ -123,11 +134,9 @@ void MainMobile::onRandomizeClicked() {
   QVBoxLayout* basesLayout = new QVBoxLayout(bases_box);
   basesLayout->setContentsMargins(0, 0, 0, 0);
   basesLayout->addWidget(bases_list);
+  SetFixedListHeight(bases_list);
 
-  int row_height = bases_list->visualItemRect(bases_list->item(0)).height();
-  int left, top, right, bottom;
-  bases_list->getContentsMargins(&left, &top, &right, &bottom);
-  bases_list->setFixedHeight(bases_list->count() * row_height + top + bottom);
+  ui_->verticalLayout->addStretch();
 }
 
 MainMobile::~MainMobile() = default;
