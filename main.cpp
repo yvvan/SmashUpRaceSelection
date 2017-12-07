@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
   QApplication a(argc, argv);
   std::srand(std::time(0));
 
-#if 0//!defined(Q_OS_ANDROID) and !defined(Q_OS_IOS)
+#if !defined(Q_OS_ANDROID) and !defined(Q_OS_IOS)
   MainWindow w;
   w.show();
 #else
