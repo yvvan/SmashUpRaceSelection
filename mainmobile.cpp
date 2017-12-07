@@ -32,14 +32,14 @@ void MainMobile::ChangeCurrent(ActiveScreen new_current) {
   if (current_screen_ == ActiveScreen::Main && ui_main_->playersNumberCombo) {
     players_number_ = ui_main_->playersNumberCombo->currentText().toUInt();
   } else if (current_screen_ == ActiveScreen::Factions) {
-    auto* factions_item = ui_->verticalLayout->itemAt(ui_->verticalLayout->count() - 1);
+    auto* factions_item = ui_->verticalLayout->itemAt(1);
     auto* factions_list = qobject_cast<QListWidget*>(factions_item->widget());
     for (size_t i = 0; i < kFactionsNumber; ++i) {
       const auto* item = factions_list->item(static_cast<int>(i));
       selected_factions_[i] = (item->checkState() == Qt::Checked);
     }
   } else if (current_screen_ == ActiveScreen::Expansions) {
-    auto* expansions_item = ui_->verticalLayout->itemAt(ui_->verticalLayout->count() - 1);
+    auto* expansions_item = ui_->verticalLayout->itemAt(1);
     auto* expansions_list = qobject_cast<QListWidget*>(expansions_item->widget());
     for (size_t i = 0; i < kExpansionsNumber; ++i) {
       const auto* item = expansions_list->item(static_cast<int>(i));
@@ -56,11 +56,13 @@ void MainMobile::ChangeCurrent(ActiveScreen new_current) {
   ClearLayout(ui_->verticalLayout);
 }
 
-static void SetFixedListHeight(QListWidget* list) {
+static int SetFixedListHeight(QListWidget* list) {
   int row_height = list->visualItemRect(list->item(0)).height();
   int left, top, right, bottom;
   list->getContentsMargins(&left, &top, &right, &bottom);
-  list->setFixedHeight(list->count() * row_height + top + bottom);
+  int height = (list->count() + 1) * row_height + top + bottom;
+  list->setFixedHeight(height);
+  return height;
 }
 
 void MainMobile::onFactionsClicked() {
@@ -73,6 +75,7 @@ void MainMobile::onFactionsClicked() {
   SetFixedListHeight(factions_list);
   QObject::connect(back_button, &QPushButton::clicked, this,
                    &MainMobile::onBackClicked);
+  ui_->verticalLayout->addStretch();
 }
 
 void MainMobile::onExpansionsClicked() {
@@ -85,6 +88,7 @@ void MainMobile::onExpansionsClicked() {
   SetFixedListHeight(expansions_list);
   QObject::connect(back_button, &QPushButton::clicked, this,
                    &MainMobile::onBackClicked);
+  ui_->verticalLayout->addStretch();
 }
 
 void MainMobile::onBackClicked() {
@@ -134,7 +138,8 @@ void MainMobile::onRandomizeClicked() {
   QVBoxLayout* basesLayout = new QVBoxLayout(bases_box);
   basesLayout->setContentsMargins(0, 0, 0, 0);
   basesLayout->addWidget(bases_list);
-  SetFixedListHeight(bases_list);
+  const int height = SetFixedListHeight(bases_list);
+  bases_box->setFixedHeight(height + 20);
 
   ui_->verticalLayout->addStretch();
 }
