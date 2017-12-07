@@ -18,7 +18,8 @@ class MainMobile : public QMainWindow
     Main = 0,
     Expansions,
     Factions,
-    Results
+    Results,
+    None
   };
 public:
   explicit MainMobile(QWidget *parent = 0);
@@ -29,6 +30,8 @@ public slots:
   void onFactionsClicked();
   void onBackClicked();
   void onRandomizeClicked();
+  void keyPressEvent(QKeyEvent*) override;
+
 private:
   void ChangeCurrent(ActiveScreen new_current);
   std::unique_ptr<Ui::MainMobile> ui_;
@@ -36,6 +39,6 @@ private:
   std::array<bool, kExpansionsNumber> selected_expansions_;
   std::array<bool, kFactionsNumber> selected_factions_;
 
-  ActiveScreen current_screen_ = ActiveScreen::Main;
+  ActiveScreen current_screen_ = ActiveScreen::None;
   size_t players_number_ = 2;
 };

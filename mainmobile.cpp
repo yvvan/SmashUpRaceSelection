@@ -4,6 +4,7 @@
 #include "ui_mainwidget.h"
 
 #include <QGroupBox>
+#include <QKeyEvent>
 #include <QMessageBox>
 #include <QScroller>
 
@@ -92,6 +93,9 @@ void MainMobile::onExpansionsClicked() {
 }
 
 void MainMobile::onBackClicked() {
+  if (current_screen_ == ActiveScreen::Main) {
+    return;
+  }
   ChangeCurrent(ActiveScreen::Main);
   QWidget* widget = new QWidget;
   ui_main_->setupUi(widget);
@@ -142,6 +146,18 @@ void MainMobile::onRandomizeClicked() {
   bases_box->setFixedHeight(height + 20);
 
   ui_->verticalLayout->addStretch();
+}
+
+void MainMobile::keyPressEvent(QKeyEvent* event) {
+  switch (event->key()) {
+    case Qt::Key_Back:
+      if (current_screen_ != ActiveScreen::Main) {
+        onBackClicked();
+        break;
+      }
+    default:
+      QMainWindow::keyPressEvent(event);
+  }
 }
 
 MainMobile::~MainMobile() = default;
