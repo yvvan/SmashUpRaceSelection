@@ -25,6 +25,10 @@ static void ShowBases(QListWidget* bases_list, size_t faction_index) {
     const size_t base_index = faction_index * 2;
     bases_list->addItem(kBases[base_index]);
     bases_list->addItem(kBases[base_index + 1]);
+    auto* item1 = bases_list->item(bases_list->count() - 2);
+    auto* item2 = bases_list->item(bases_list->count() - 1);
+    item1->setFlags(item1->flags() & ~Qt::ItemIsSelectable);
+    item2->setFlags(item2->flags() & ~Qt::ItemIsSelectable);
 }
 
 void AddGroup(QBoxLayout* cur_layout, QListWidget* bases_list,

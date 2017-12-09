@@ -26,7 +26,7 @@ constexpr size_t ArrSum(size_t const (&arr)[N], std::size_t i = 0) {
 static constexpr size_t kFactionsNumber = ArrSum<kExpansionsNumber>(kExpansionSizes);
 
 static constexpr const std::array<const char*, kFactionsNumber>
-kFactions = {"Aliens", "Dinasaurs", "Ninjas", "Pirates", "Robots", "Tricksters", "Wizards",
+kFactions = {"Aliens", "Dinosaurs", "Ninjas", "Pirates", "Robots", "Tricksters", "Wizards",
              "Zombies", "Bear Cavalry", "Ghosts", "Killer Plants", "Steampunks", "Elder Things",
              "Innsmouth", "Minions of Cthulhu", "Miskatonic University", "Cyborg Apes",
              "Shapeshifters", "Super Spies", "Time Travelers", "Geeks", "Giant Ants",
@@ -48,7 +48,7 @@ kBases = {"The Homeworld","The Mothership","Jungle Oasis","Tar Pits","Ninja Dojo
           "Plateau of Leng","Innsmouth","Ritual Site","Mountains of Madness","R'lyeh","Asylum",
           "Miskatonic University","Monkey Lab","Primate Park","Faceless City","The Vats",
           "ISI's Swingin' Pad","Secret Volcano Headquarters","Portal Room","The Nexus","TableTop",
-          "The Con","Egg Chamber","The Hill","Golem SchloÃŸ","Laboratorium","Castle Blood","Crypt",
+          "The Con","Egg Chamber","The Hill","Golem Schloß","Laboratorium","Castle Blood","Crypt",
           "Moot Site","Standing Stones","Enchanted Glen","Fairy Circle","Cool Cats' Alley",
           "The House of Nine Lives","Equaria","Pony Land","Beautiful Castle","Ice Castle",
           "Hotel of Holiness","Whack-A-Ghoul","The Mines","Treasure Bath","Helper's Hollow",
