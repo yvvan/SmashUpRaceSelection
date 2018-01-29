@@ -60,7 +60,8 @@ kBases = {"The Homeworld","The Mothership","Jungle Oasis","Tar Pits","Ninja Dojo
           "Wintersquashed","Neutral Space","USS Undertaking","Ancient Temple","City of Gold",
           "Grandma's House","Retirement Community","Lake Minnetonka","Palooza","Out in the Woods",
           "Under the Bed","Critter Combat Club","Itty City","Kaiju Island","Tokyo","Akihabara High",
-          "Q Point","Juice Bar","Moon Dumpster","Locker Room","Stadium","sheep 1","sheep 2"};
+          "Q Point","Juice Bar","Moon Dumpster","Locker Room","Stadium","Sheep Shrine",
+          "The Pasture"};
 
 class QBoxLayout;
 void ClearLayout(QBoxLayout* layout);
