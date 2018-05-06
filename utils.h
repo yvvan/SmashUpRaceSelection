@@ -4,19 +4,19 @@
 
 #include <array>
 
-static constexpr size_t kExpansionsNumber = 14;
+static constexpr size_t kExpansionsNumber = 15;
 
 static constexpr size_t
-kExpansionSizes[kExpansionsNumber] = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4, 1, 1};
+kExpansionSizes[kExpansionsNumber] = {8, 4, 4, 4, 1, 4, 4, 8, 5, 4, 4, 4, 1, 1, 4};
 
 static constexpr size_t
-kExpansionShifts[kExpansionsNumber] = {0, 8, 12, 16, 20, 21, 25, 29, 37, 42, 46, 50, 54, 55};
+kExpansionShifts[kExpansionsNumber] = {0, 8, 12, 16, 20, 21, 25, 29, 37, 42, 46, 50, 54, 55, 56};
 
 static constexpr const std::array<const char*, kExpansionsNumber>
 kExpansions = {"Core Set", "Awesome Level 9000", "The Obligatory Cthulhu Set",
                "Science Fiction Double Feature", "Geeks", "Monster Smash", "Pretty Pretty",
                "Munchkin", "It's Your Fault", "Cease & Desist", "What Were We Thinking?",
-               "Big in Japan", "All Stars Event Kit", "Sheep Promotion"};
+               "Big in Japan", "All Stars Event Kit", "Sheep Promotion", "That ’70s Expansion"};
 
 template <size_t N>
 constexpr size_t ArrSum(size_t const (&arr)[N], std::size_t i = 0) {
@@ -35,7 +35,8 @@ kFactions = {"Aliens", "Dinosaurs", "Ninjas", "Pirates", "Robots", "Tricksters",
              "Warriors", "Dragons", "Mythic Greeks", "Sharks", "Superheroes", "Tornadoes",
              "Astroknightes", "Changerbots", "Ignobles", "Star Roamers", "Explorers", "Grannies",
              "Rock Stars", "Teddy Bears", "Itty Critters", "Kaiju", "Magical Girls",
-             "Mega Troopers", "Smash Up All Stars", "Sheep"};
+             "Mega Troopers", "Smash Up All Stars", "Sheep", "Disco Dancers", "Kung Fu Fighters",
+             "Truckers", "Vigilantes"};
 
 static constexpr size_t kBasesNumber = kFactionsNumber * 2;
 
@@ -61,7 +62,8 @@ kBases = {"The Homeworld","The Mothership","Jungle Oasis","Tar Pits","Ninja Dojo
           "Grandma's House","Retirement Community","Lake Minnetonka","Palooza","Out in the Woods",
           "Under the Bed","Critter Combat Club","Itty City","Kaiju Island","Tokyo","Akihabara High",
           "Q Point","Juice Bar","Moon Dumpster","Locker Room","Stadium","Sheep Shrine",
-          "The Pasture"};
+          "The Pasture", "Boogie Wonderland", "Funky Town", "Ancient Dojo", "Tournament Site",
+          "The Greasy Spoon", "Truck Stop", "Hideout", "The Mean Streets"};
 
 class QBoxLayout;
 void ClearLayout(QBoxLayout* layout);
